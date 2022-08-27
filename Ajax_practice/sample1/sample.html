@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+<body>
+    <div id="sample"></div>
+    <script>
+        var ajax = new XMLHttpRequest();
+        ajax.open('GET', 'sample.json', true);
+        ajax.onload = function(e) {
+            if(ajax.readyState === 4) {
+                if(ajax.status === 200) {
+                    var json = JSON.parse(ajax.responseText);
+                    var html = '<ul>';
+                    for(var i = 0; i < json.length; i++) {
+                        html += `<li>${json[i].email}</li>`;
+                    }
+                    html += '</ul>';
+                    document.getElementById('sample').innerHTML = html;
+                }
+            }
+        }
+        ajax.send(null);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+body {
+    text-align: center;
+}
+
+#container {
+    max-width: 700px;
+    padding: 80px 80px;
+    background-color: rgb(234, 227, 228);
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    width: 100%;
+}
+
+#number {
+    font-size: 5rem;
+}
+
+ul {
+    display: flex;
+    margin: 30px 200px;
+    padding-left: 0;
+    justify-content: space-between;
+}
+
+li {
+    list-style: none;
+}
