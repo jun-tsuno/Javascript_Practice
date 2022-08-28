@@ -6,7 +6,8 @@ body {
 
 #container {
     max-width: 700px;
-    padding: 80px 80px;
+    padding-top: 80px;
+    padding-bottom: 80px;
     background-color: rgb(235, 227, 228);
     text-align: center;
     display: inline-block;
@@ -20,11 +21,29 @@ body {
 
 ul {
     display: flex;
-    margin: 30px 200px;
+    margin: 0 20%;
     padding-left: 0;
-    justify-content: space-between;
 }
 
 li {
     list-style: none;
+    margin: auto;
+}
+
+button {
+    padding: 10px;
+}
+
+.increase {
+    background-color: rgba(51, 204, 51, 0.8);
+}
+
+.decrease {
+    background-color: rgba(260, 51, 153, 0.7);
+}
+
+button {
+    border-radius: 7px;
+    border-color: lightgray;
+    box-shadow: 0px 5px 5px grey;
 }
