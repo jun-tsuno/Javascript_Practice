@@ -6,7 +6,7 @@ const button = document.querySelectorAll('button');
 
 let count = 0;
 
-// Calculate function
+// Calculate function.
 function calculate(e) {
     let style = e.currentTarget.classList;
     if(style.value === 'increase') {
