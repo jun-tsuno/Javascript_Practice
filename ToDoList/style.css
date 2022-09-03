@@ -1,14 +1,42 @@
 @charset "utf-8";
 
 :root {
-    --neon-text-color: #f40;
-    --neon-border-color: #08f;
+    --primary-color: rgb(241, 93, 93);
+    --secondary-color: rgb(205, 199, 199);
+    --secondary-odd-color: #fff;
+    --secondary-checked-color: #555;
+    --on-primary: #fff;
+    --on-secondary: black;
+    --on-secondary-checked: #fff;
+    --on-submit-button: #555;
+    --on-background: black;
+    --submit-button: #d9d9d9;
+    --background: #fff;
+    --border: 1px solid rgb(85 85 85 / 50%);
+    --icon: black;
+}
+
+[data-theme = 'dark'] {
+    --primary-color: rgb(8, 149, 149);
+    --secondary-color: rgb(18 18 18 / 50%);
+    --secondary-odd-color: rgb(18 18 18 / 50%);
+    --secondary-checked-color: rgb(171, 165, 165);
+    --on-primary: #fff;
+    --on-secondary: #fff;
+    --on-secondary-checked: #fff;
+    --on-submit-button: #555;
+    --on-background: #fff;
+    --submit-button: #d9d9d9;
+    --background: #121212;
+    --border: 3px solid rgb(108 99 255 / 50%);
+    --icon: white;
 }
 
 body {
     margin: 0;
     min-width: 250px;
-    background-color: white;
+    background-color: var(--background);
+    background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M81.28 88H68.413l19.298 19.298L81.28 88zm2.107 0h13.226L90 107.838 83.387 88zm15.334 0h12.866l-19.298 19.298L98.72 88zm-32.927-2.207L73.586 78h32.827l.5.5 7.294 7.293L115.414 87l-24.707 24.707-.707.707L64.586 87l1.207-1.207zm2.62.207L74 80.414 79.586 86H68.414zm16 0L90 80.414 95.586 86H84.414zm16 0L106 80.414 111.586 86h-11.172zm-8-6h11.173L98 85.586 92.414 80zM82 85.586L87.586 80H76.414L82 85.586zM17.414 0L.707 16.707 0 17.414V0h17.414zM4.28 0L0 12.838V0h4.28zm10.306 0L2.288 12.298 6.388 0h8.198zM180 17.414L162.586 0H180v17.414zM165.414 0l12.298 12.298L173.612 0h-8.198zM180 12.838L175.72 0H180v12.838zM0 163h16.413l.5.5 7.294 7.293L25.414 172l-8 8H0v-17zm0 10h6.613l-2.334 7H0v-7zm14.586 7l7-7H8.72l-2.333 7h8.2zM0 165.414L5.586 171H0v-5.586zM10.414 171L16 165.414 21.586 171H10.414zm-8-6h11.172L8 170.586 2.414 165zM180 163h-16.413l-7.794 7.793-1.207 1.207 8 8H180v-17zm-14.586 17l-7-7h12.865l2.333 7h-8.2zM180 173h-6.613l2.334 7H180v-7zm-21.586-2l5.586-5.586 5.586 5.586h-11.172zM180 165.414L174.414 171H180v-5.586zm-8 5.172l5.586-5.586h-11.172l5.586 5.586zM152.933 25.653l1.414 1.414-33.94 33.942-1.416-1.416 33.943-33.94zm1.414 127.28l-1.414 1.414-33.942-33.94 1.416-1.416 33.94 33.943zm-127.28 1.414l-1.414-1.414 33.94-33.942 1.416 1.416-33.943 33.94zm-1.414-127.28l1.414-1.414 33.942 33.94-1.416 1.416-33.94-33.943zM0 85c2.21 0 4 1.79 4 4s-1.79 4-4 4v-8zm180 0c-2.21 0-4 1.79-4 4s1.79 4 4 4v-8zM94 0c0 2.21-1.79 4-4 4s-4-1.79-4-4h8zm0 180c0-2.21-1.79-4-4-4s-4 1.79-4 4h8z' fill='%237399bf' fill-opacity='0.21' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
 * {
@@ -21,13 +49,13 @@ body {
 }
 
 .header {
-    background-color: #FF6666;
+    background-color: var(--primary-color);
     padding: 30px 40px;
-    color: white;
+    color: var(--on-primary);
     text-align: center;
     display: inline-block;
     width: 100%;
-
+    border: var(--border);
 }
 
 h2 {
@@ -49,8 +77,8 @@ input {
     padding: 10px;
     width: 25%;
     float: left;
-    color: #555;
-    background-color: #d9d9d9;
+    color: var(--on-submit-button);
+    background-color: var(--submit-button);
     text-align: center;
     font-size: 16px;
     cursor: pointer;
@@ -58,8 +86,8 @@ input {
 }
 
 .addBtn:hover {
-    background-color: rgb(183, 178, 178);
-    color: white;
+    filter: brightness(90%);
+    color: var(--on-primary);
 }
 
 ul {
@@ -76,18 +104,19 @@ ul li {
     font-size: 20px;
     cursor: pointer;
     transition: 0.2s;
-    background-color: grey;
-    border: 1px solid #555;
+    background-color: var(--secondary-color);
+    color: var(--on-secondary);
+    border: var(--border);
     border-radius: 3px;
 }
 
 ul li:nth-child(odd) {
-    background-color: white;
+    background-color: var(--secondary-odd-color);
 }
 
 
 ul li:hover {
-    background-color: rgb(183, 178, 178);
+    filter: brightness(90%);
 }
 
 .close {
@@ -98,21 +127,21 @@ ul li:hover {
 }
 
 .close:hover {
-    background-color: red;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--on-primary);
     font-weight: bold;
 }
 
 ul li.checked {
-    background-color: #555;
-    color: white;
+    background-color: var(--secondary-checked-color);
+    color: var(--on-secondary-checked);
     text-decoration: line-through;
 }
 
 ul li.checked::before {
     content: '';
     position: absolute;
-    border-color: white;
+    border-color: var(--on-primary);
     border-style: solid;
     border-width: 0 2px 2px 0;
     top: 10px;
@@ -120,4 +149,86 @@ ul li.checked::before {
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
+}
+
+/* --- toggle button --- */
+/* The switch - the box around the slider */
+#theme-switch-wrapper {
+    display: flex;
+    position: fixed;
+    top: 10px;
+    right: 15px;
+}
+
+.toggle-text {
+    font-size: 15px;
+    color: var(--icon);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+  /* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+  /* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+  /* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.fas {
+    font-size: 30px;
+    margin-right: 5px;
+    color: var(--icon);
 }

@@ -22,7 +22,7 @@ const remove = document.getElementsByClassName('close');
 for(let i = 0; i < remove.length; i++) {
     remove[i].onclick = function(){
         const div = this.parentNode;
-        div.style.display = "none"; 
+        div.style.display = "none";
     }
 }
 
@@ -39,7 +39,7 @@ function newElement() {
         document.getElementById('myUL').appendChild(li);
         document.getElementById('myInput').value = '';
     }
-    
+
 
     const createSpan = document.createElement('SPAN');
     const txt = document.createTextNode("\u00D7");
@@ -51,10 +51,10 @@ function newElement() {
     for(let i = 0; i < remove.length; i++) {
     remove[i].onclick = function(){
         const div = this.parentNode;
-        div.style.display = "none"; 
+        div.style.display = "none";
     }
-   }
-} 
+    }
+}
 
 /*--- add line when tasks done --- */
 const list = document.querySelector('ul');
@@ -63,3 +63,28 @@ list.addEventListener('click', function(e){
         e.target.classList.toggle('checked');
     }
 }, false);
+
+
+// Add Dark Mode
+const toggleSwitch = document.querySelector('input[type="checkbox"]');
+const toggleIcon = document.getElementById('toggle-icon');
+
+function switchDarkLightMode(isDark) {
+    toggleIcon.children[0].innerHTML = isDark ? 'Dark Mode' : 'Light Mode';
+    isDark ? toggleIcon.children[1].classList.replace('fa-sun', 'fa-moon') :
+    toggleIcon.children[1].classList.replace('fa-moon', 'fa-sun');
+}
+
+function switchTheme(e) {
+    if(e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        switchDarkLightMode(true);
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        switchDarkLightMode(false);
+    }
+}
+
+
+// Event Listener
+toggleSwitch.addEventListener('change', switchTheme);
